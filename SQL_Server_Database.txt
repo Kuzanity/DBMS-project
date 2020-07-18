@@ -1,0 +1,53 @@
+CREATE TABLE [SALES_Invoice] (
+  [Order_ID] INT(12),
+  [Customer_ID] INT(10),
+  [Product_ID] INT,
+  [Total_Price] INT
+);
+
+CREATE INDEX [FK] ON  [SALES_Invoice] ([Order_ID], [Customer_ID], [Product_ID]);
+
+CREATE TABLE [ADMIN_Info] (
+  [Admin_ID] INT,
+  [Ad_FirstName] CHAR(50),
+  [Ad_LastName] CHAR(50),
+  [Email] VARCHAR(20),
+  PRIMARY KEY ([Admin_ID])
+);
+
+CREATE TABLE [SALES_Order] (
+  [Order_ID] INT(12),
+  [Customer_ID] INT(10),
+  [Prod_Qty] INT(10),
+  [Prod_Price] INT,
+  [Total_Price] INT,
+  [Transaction_Date] DATETIME,
+  [Product_ID] INT,
+  [Admin_ID] INT,
+  PRIMARY KEY ([Order_ID])
+);
+
+CREATE INDEX [FK] ON  [SALES_Order] ([Customer_ID], [Product_ID], [Admin_ID]);
+
+CREATE TABLE [SALES_Customer.Info] (
+  [Customer_ID] INT(10),
+  [Customer_Name] CHAR(50),
+  PRIMARY KEY ([Customer_ID])
+);
+
+CREATE TABLE [ACTIVITY_Log] (
+  [Activity_ID] INT,
+  [Admin_ID] INT,
+  [Activity_Name] CHAR(50),
+  [Activity_Date] INT,
+  [Sales_Today] INT
+);
+
+CREATE TABLE [SALES_Product] (
+  [Prod_Qty] INT,
+  [Prod_Name] CHAR(50),
+  [Prod_Price] INT,
+  [Product_ID] INT,
+  [Product_Type] VARCHAR(50),
+  PRIMARY KEY ([Product_ID])
+);

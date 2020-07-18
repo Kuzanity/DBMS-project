@@ -1,0 +1,17 @@
+use dboragon;
+show tables;
+call insert_customer('adrian');
+select * from admin_info;
+desc sales_product;
+use dboragon;
+insert into admin_info (Admin_ID,Ad_FirstName,Ad_LastName,Email) values (123,'Adrian','Diaz', 'asdfa@gmail.com');
+insert into login_regis (Admin_User,Password,Admin_ID) values ('CPE21FA1','project',123);
+select* from login_regis;
+insert into sales_product(Product_ID,Prod_Name,Prod_Qty,Prod_Price,Product_Type) values('2231','sda','2','312','asdfa');
+alter table login_regis modify Admin_User char(50); 
+select * from activity_log;
+delete from activity_log where admin_id is null;
+delete from login_regis where admin_user='12345';
+insert into login_regis (Admin_User,Password,Admin_ID) values ('CPE21FA1','Project',123);
+alter table activity_log change Activity_ID Admin_ID INT;
+insert into sales_order(Customer_ID,Admin_ID,Prod_Name,Prod_Qty,Total_Price,Transaction_Date) values(3,123,'Penshoppe','1','200',NOW());
